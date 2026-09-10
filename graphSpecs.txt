@@ -1,0 +1,21 @@
+Graph Class:
+    addVertex(String aName)
+        adds a new vertex with a given name
+    setEdge(String src, String dest, int weight)
+        adds edge from src to dest with weight
+        if src or dest DNE, throw exception (IllegalArgumentException) //ADD THIS
+        if edge already exists, update the weight //ADD THIS
+    delEdge(String src, String dest)
+        if exists, delet it
+        else don't
+    Constructor (boolean isDirected)
+        if set, adds only 1 edge
+        else, adds opposite edges going opposite direction
+    printGraph()
+        prints the graph : SourceVertex: (DestVertex, Weight)
+    delVertex(String target? edge?)
+        delete vertex and edges containing src/dest
+    OPTIONAL
+    getVertex(param)
+    getEdge(src, dest)
+    getVerticies()

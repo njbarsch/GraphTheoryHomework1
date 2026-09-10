@@ -1,0 +1,7 @@
+Number of graphs
+D[irected] U[ndirected]
+Vertex1, Vertex2, Vertexn
+Vertex1, Dest-Vertix1, Weight-Vertix1, Dest-Vertixn, Weight-Vertixn
+D[irected] U[ndirected]
+Vertex1, Vertex2, Vertexn
+Vertex1, Dest-Vertix1, Weight-Vertix1, Dest-Vertixn, Weight-Vertixn

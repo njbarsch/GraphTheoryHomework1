@@ -1,0 +1,34 @@
+5
+U
+A, B, C, D, E
+A, B, 1, E, 1
+B, A, 1, C, 1
+C, B, 1, D, 1
+D, C, 1, E, 1
+E, A, 1, D, 1
+D
+A, B, C, D, E
+A, B, 1
+B, C, 2
+C, D, 3
+D, E, 4
+E, A, 5
+D
+Hagar, Abraham, Sarah, Ishmael, Isaac, Rebecca, Leah, Jacob, Rachel, Reuben, Joseph
+Hagar, Abraham, 1, Ishmael, 1
+Abraham, Hagar, 1, Ishmael, 1, Sarah, 1, Isaac, 1
+Sarah, Abraham, 1, Isaac, 1
+Ishmael
+Isaac, Rebecca, 1, Jacob, 1
+Rebecca, Isaac, 1, Jacob, 1
+Leah, Jacob, 1, Reuben, 1
+Jacob, Leah, 1, Rachel, 1, Reuben, 1, Joseph, 1
+Rachel, Jacob, 1, Joseph, 1
+Reuben
+Joseph
+U
+A
+A, A, 1
+D
+A
+A, A, 1
