@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.ArrayDeque;
 
 public class Graph {
     //hashmap is key, value
@@ -8,10 +11,14 @@ public class Graph {
     private HashMap<String, ArrayList<Edge>> graph;
     //is the graph directed?
     private boolean isDirectedGraph;
-
+    
     public Graph(boolean aDirectedGraph) {
         graph = new HashMap<String, ArrayList<Edge>>();
         isDirectedGraph = aDirectedGraph;    
+    }
+    
+    public boolean knowIfDirectedGraph() {
+        return isDirectedGraph;
     }
 
     //adds a vertex to the map
@@ -145,11 +152,6 @@ public class Graph {
         }
     }
 
-    public boolean knowIfDirectedGraph() {
-        return isDirectedGraph;
-    }
-
-    //given
     public int getDestVertexIndex(String target, ArrayList<Edge> destVerts) {
         for(int i = 0; i < destVerts.size(); i++) {
             String debug = destVerts.get(i).getDestVertName();
@@ -158,5 +160,30 @@ public class Graph {
             }
         }
         return -1;
+    }
+
+    public Queue<String> depthFirstSearch(String startVertex) {
+        //for the dfs
+        Stack<String> stack = new Stack<String>();
+        //our ultimate path we take
+        Queue<String> path = new ArrayDeque<String>();
+        //places we've gone
+        Stack<String> visited = new Stack<String>();
+
+        stack.push(startVertex);
+
+        while(!stack.isEmpty()) {
+            String vertex = stack.pop();
+            if(visited.contains(vertex)) {
+                continue;
+            }
+            visited.push(vertex);
+            ArrayList<Edge> moves = graph.get(vertex);
+            for(Edge e : moves) {
+                stack.push(e.getDestVertName());
+            }
+
+        }
+        return path;
     }
 }

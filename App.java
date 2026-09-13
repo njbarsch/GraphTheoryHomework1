@@ -1,12 +1,14 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Queue;
 
 public class App {
     public static void main(String[] args) {
         Graph[] graphs = null;
         graphs = constructGraphs(graphs);
         printGraphs(graphs);
+        Queue<String> path = graphs[0].depthFirstSearch("A");
     }
     //Creates our graphs read in from the file, and returns an array of them
     public static Graph[] constructGraphs(Graph[] graphs) {
@@ -98,120 +100,6 @@ public class App {
     //16, add-edge, dirct, no dest
 
     public static void testing(Graph[] graphs) {
-        System.out.println("Test 1: Deleting an edge from an undirected graph that exists");
-        System.out.println("Before");
-        graphs[0].printGraph();
-        System.out.println("After");
-        graphs[0].delEdge("A", "B");
-        graphs[0].printGraph();
-        
-        System.out.println("\nTest 2: Deleting an edge from an undirected graph that does not exist");
-        System.out.println("Before");
-        graphs[0].printGraph();
-        System.out.println("After");
-        graphs[0].delEdge("A", "B");
-        graphs[0].printGraph();
-        
-        System.out.println("\nTest 3: Deleting an edge from a directed graph that exists");
-        System.out.println("Before");
-        graphs[1].printGraph();
-        System.out.println("After");
-        graphs[1].delEdge("B", "C");
-        graphs[1].printGraph();
-        
-        System.out.println("\nTest 4: Deleting an edge from a directed graph that does not exist");
-        System.out.println("Before");
-        graphs[1].printGraph();
-        System.out.println("After");
-        graphs[1].delEdge("B", "C");
-        graphs[1].printGraph();
-        
-        System.out.println("\nTest 5: Deleting a vertex from a undirected graph that exists");
-        System.out.println("Before");
-        graphs[3].printGraph();
-        System.out.println("After");
-        graphs[3].delVertex("B");
-        graphs[3].printGraph();
-
-        System.out.println("\nText 6: Deleting a vertex from an undirected graph that does not exist");
-        System.out.println("Before");
-        graphs[3].printGraph();
-        System.out.println("After");
-        graphs[3].delVertex("B");
-        graphs[3].printGraph();
-
-        System.out.println("\nTest 7: Deleting a vertex from a directed graph that exists");
-        System.out.println("Before");
-        graphs[4].printGraph();
-        System.out.println("After");
-        graphs[4].delVertex("B");
-        graphs[4].printGraph();
-
-        System.out.println("\nTest 8: Deleting a vertex from a directed graph that does not exist");
-        System.out.println("Before");
-        graphs[4].printGraph();
-        System.out.println("After");
-        graphs[4].delVertex("B");
-        graphs[4].printGraph();
-
-        System.out.println("\nTest 9: Changing an edge's weight from a directed graph that exists");
-        System.out.println("Before");
-        graphs[1].printGraph();
-        System.out.println("After");
-        graphs[1].setEdge("E", "A", 40);
-        graphs[1].printGraph();
-
-        System.out.println("\nTest 10: Changing an edge's weight from a directed graph that does not exist");
-        System.out.println("Before");
-        graphs[1].printGraph();
-        System.out.println("After");
-        graphs[1].setEdge("B", "C", 40);
-        graphs[1].printGraph();
-
-        System.out.println("\nTest 11: Deletes a self edge from a undirected graph");
-        System.out.println("Before");
-        graphs[5].printGraph();
-        System.out.println("After");
-        graphs[5].delEdge("A", "A");
-        graphs[5].printGraph();
-        
-        System.out.println("\nTest 12: Deletes a self edge from a directed graph");
-        System.out.println("Before");
-        graphs[6].printGraph();
-        System.out.println("After");
-        graphs[6].delEdge("A", "A");
-        graphs[6].printGraph();
-
-        System.out.println("\nTest 13: Add new edge to undirected graph : source does not exist");
-        System.out.println("Before");
-        graphs[3].printGraph();
-        System.out.println("After");
-        graphs[3].setEdge("Z", "B", 1);
-        graphs[3].printGraph();
-
-        System.out.println("\nTest 14: Add new edge to undirected graph : destination does not exist");
-        System.out.println("Before");
-        graphs[3].printGraph();
-        System.out.println("After");
-        graphs[3].setEdge("A", "Z", 1);
-        graphs[3].printGraph();
-
-        System.out.println("\nTest 15: Add new edge to directed graph : source does not exist");
-        System.out.println("Before");
-        graphs[4].printGraph();
-        System.out.println("After");
-        graphs[4].setEdge("Z", "B", 40);
-        graphs[4].printGraph();
-        
-        System.out.println("\nTest 16: Add new edge to directed graph : destination does not exist");
-        System.out.println("Before");
-        graphs[4].printGraph();
-        System.out.println("After");
-        graphs[4].setEdge("A", "Z", 40);
-        graphs[4].printGraph();
-            //13, add-edge, undir, no src
-    //14, add-edge, undir, no dest
-    //15, add-edge, dirct, no src
-    //16, add-edge, dirct, no dest
+       
     }
 }
