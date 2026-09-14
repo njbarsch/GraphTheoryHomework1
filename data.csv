@@ -8,6 +8,7 @@ D, A, 1, E, 1, G, 1
 E, D, 1, H, 1
 F, C, 1, I, 1
 G, D, 1, H, 1
+H, E, 1, G, 1
 I, F, 1
 U
 A, B, C, D, E

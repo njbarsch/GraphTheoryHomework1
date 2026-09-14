@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.Stack;
 import java.util.Queue;
 import java.util.ArrayDeque;
@@ -160,6 +159,7 @@ public class Graph {
                 return i;
             }
         }
+        System.out.println("Error, could not find destination vertex");
         return -1;
     }
 
@@ -168,27 +168,70 @@ public class Graph {
         Stack<ArrayList<String>> stack = new Stack<ArrayList<String>>();
         //places we've gone
         Stack<String> visited = new Stack<String>();
+        
+        ArrayList<String> start = new ArrayList<String>();
+        start.add(startVertexName);
+        stack.push(start);
 
         while(!stack.isEmpty()) {
             ArrayList<String> path = stack.pop();
-            String vertex = path.get(path.size() - 1);
+            String currentVertex = path.get(path.size() - 1);
 
-            if(vertex.equals(endVertexName)) {
+            if(currentVertex.equals(endVertexName)) {
                 System.out.println("We made it to the end!");
                 return path;
             }
-            if(visited.contains(vertex)) {
+            if(visited.contains(currentVertex)) {
                 continue;
             }
-            visited.push(vertex);
-            ArrayList<Edge> moves = graph.get(vertex);
+            visited.push(currentVertex);
+            ArrayList<Edge> moves = graph.get(currentVertex);
             for(Edge e : moves) {
                 ArrayList<String> neighbor = new ArrayList<String>();
+                for(String vertexName : path) {
+                    neighbor.add(vertexName);
+                }
                 neighbor.add(e.getDestVertName());
                 stack.push(neighbor);
             }
-
         }
+        System.out.println("Error in DFS Algorithm");
+        return null;
+    }
+
+    public ArrayList<String> breadthFirstSearch(String startVertexName, String endVertexName) {
+        //for the dfs
+        Queue<ArrayList<String>> queue = new ArrayDeque<ArrayList<String>>();
+        //places we've gone
+        Stack<String> visited = new Stack<String>();
+        
+        ArrayList<String> start = new ArrayList<String>();
+        start.add(startVertexName);
+        queue.add(start);
+
+        while(!queue.isEmpty()) {
+            ArrayList<String> path = queue.remove();
+            String currentVertex = path.get(path.size() - 1);
+
+            if(currentVertex.equals(endVertexName)) {
+                System.out.println("We made it to the end!");
+                return path;
+            }
+            if(visited.contains(currentVertex)) {
+                continue;
+            }
+            visited.push(currentVertex);
+            ArrayList<Edge> moves = graph.get(currentVertex);
+            for(Edge e : moves) {
+                ArrayList<String> neighbor = new ArrayList<String>();
+                for(String vertexName : path) {
+                    neighbor.add(vertexName);
+                }
+                neighbor.add(e.getDestVertName());
+                queue.add(neighbor);
+            }
+        }
+        System.out.println("Error in DFS Algorithm");
         return null;
     }
 }

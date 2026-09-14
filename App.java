@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Queue;
 import java.util.ArrayList;
 
 public class App {
@@ -9,7 +8,14 @@ public class App {
         Graph[] graphs = null;
         graphs = constructGraphs(graphs);
         printGraphs(graphs);
-        ArrayList<String> path = graphs[0].depthFirstSearch("A", "E");
+        ArrayList<String> path1d = graphs[0].depthFirstSearch("A", "I");
+        ArrayList<String> path2d = graphs[1].depthFirstSearch("A", "E");
+        ArrayList<String> path1b = graphs[0].breadthFirstSearch("A", "I");
+        ArrayList<String> path2b = graphs[1].breadthFirstSearch("A", "E");
+        System.out.println(path1d);
+        System.out.println(path1b);
+        System.out.println(path2d);
+        System.out.println(path2b);
     }
     //Creates our graphs read in from the file, and returns an array of them
     public static Graph[] constructGraphs(Graph[] graphs) {
@@ -99,7 +105,6 @@ public class App {
     //14, add-edge, undir, no dest
     //15, add-edge, dirct, no src
     //16, add-edge, dirct, no dest
-
     public static void testing(Graph[] graphs) {
        
     }
