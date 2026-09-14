@@ -2,13 +2,14 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Queue;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
         Graph[] graphs = null;
         graphs = constructGraphs(graphs);
         printGraphs(graphs);
-        Queue<String> path = graphs[0].depthFirstSearch("A");
+        ArrayList<String> path = graphs[0].depthFirstSearch("A", "E");
     }
     //Creates our graphs read in from the file, and returns an array of them
     public static Graph[] constructGraphs(Graph[] graphs) {

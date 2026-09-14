@@ -1,0 +1,9 @@
+s = stack
+s.push(start_value)
+while not empty:
+    v = s.pop()
+    if v is visited:
+        continue
+    mark v as visited
+    for each neighbor x of v:
+        s.push(x)

@@ -1,4 +1,14 @@
-5
+6
+U
+A, B, C, D, E, F, G, H, I
+A, B, 1, D, 1
+B, A, 1, C, 1
+C, B, 1, F, 1
+D, A, 1, E, 1, G, 1
+E, D, 1, H, 1
+F, C, 1, I, 1
+G, D, 1, H, 1
+I, F, 1
 U
 A, B, C, D, E
 A, B, 1, E, 1

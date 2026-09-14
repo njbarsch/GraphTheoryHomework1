@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.Stack;
 import java.util.Queue;
 import java.util.ArrayDeque;
@@ -162,28 +163,32 @@ public class Graph {
         return -1;
     }
 
-    public Queue<String> depthFirstSearch(String startVertex) {
+    public ArrayList<String> depthFirstSearch(String startVertexName, String endVertexName) {
         //for the dfs
-        Stack<String> stack = new Stack<String>();
-        //our ultimate path we take
-        Queue<String> path = new ArrayDeque<String>();
+        Stack<ArrayList<String>> stack = new Stack<ArrayList<String>>();
         //places we've gone
         Stack<String> visited = new Stack<String>();
 
-        stack.push(startVertex);
-
         while(!stack.isEmpty()) {
-            String vertex = stack.pop();
+            ArrayList<String> path = stack.pop();
+            String vertex = path.get(path.size() - 1);
+
+            if(vertex.equals(endVertexName)) {
+                System.out.println("We made it to the end!");
+                return path;
+            }
             if(visited.contains(vertex)) {
                 continue;
             }
             visited.push(vertex);
             ArrayList<Edge> moves = graph.get(vertex);
             for(Edge e : moves) {
-                stack.push(e.getDestVertName());
+                ArrayList<String> neighbor = new ArrayList<String>();
+                neighbor.add(e.getDestVertName());
+                stack.push(neighbor);
             }
 
         }
-        return path;
+        return null;
     }
 }
